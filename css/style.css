@@ -209,9 +209,10 @@ table thead th {
     color: #333;
 }
 table td {
-    padding: 15px 10px;
+    /* padding: 0px 0px !important; */
 	border-top: 1px solid #dee2e6;
 	border-bottom: 1px solid #dee2e6;
+    /* font-size: 12px !important; */
 }
 table tr:last-child td{
 	border-bottom:0;
