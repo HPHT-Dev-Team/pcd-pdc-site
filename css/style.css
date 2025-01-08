@@ -14653,3 +14653,28 @@ input[type="radio"] + label:hover:before{
 .card_style{
     border: 2px solid #fdb400;
 }
+#home .rev_slider_wrapper {
+    height: 50vh !important;
+    max-height: 50vh !important;
+}
+
+#home .rev-slidebg {
+    width: 100%;
+    height: 50vh;
+    object-fit: cover;
+}
+@media (max-width: 768px) {
+    #home .rev_slider_wrapper {
+        height: 40vh !important;
+    }
+
+    #home .rev-slidebg {
+        height: 40vh;
+    }
+    .default-banner{
+        height: 350px !important;
+    }
+}
+.default-banner{
+    height: 350px;
+}

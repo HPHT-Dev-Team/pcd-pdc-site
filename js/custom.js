@@ -1280,3 +1280,11 @@ jQuery(window).on('resize',function () {
 	Industry.resize();
 });
 /*  Window Resize END */
+function downloadPDF() {
+    const link = document.createElement('a');
+    link.href = 'images/hpht_products/pcd_pdc.pdf'; // Path to your PDF
+    link.download = 'MyDocument.pdf'; // Suggested filename
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+	console.warn();}

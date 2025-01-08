@@ -60,7 +60,7 @@
 	font-size:60px;
 }
 .event-banner {
-  min-height: 100vh;
+  min-height: 40%;
   padding-top: 120px;
   display: flex;
   align-items: center;
