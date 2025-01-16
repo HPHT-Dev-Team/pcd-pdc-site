@@ -14603,11 +14603,11 @@ input[type="radio"] + label:hover:before{
     display: ruby-text !important;
 }
 .spec_txt2{
-    color: #ff5e14;
+    color: #fbd400;
     font-size: 34px;
 }
 .spec_txt3{
-    color: #ff5e14;
+    color: #fdb400;
     font-size: 25px;
     text-align: left;
     margin: 5px 0px;
@@ -14677,4 +14677,8 @@ input[type="radio"] + label:hover:before{
 }
 .default-banner{
     height: 350px;
+}
+.spl_txt{
+    color: #fdb400;
+    text-align: center;
 }
