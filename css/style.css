@@ -14682,3 +14682,7 @@ input[type="radio"] + label:hover:before{
     color: #fdb400;
     text-align: center;
 }
+.dzsale {
+    padding: 5px 20px;
+    display: none !important;
+}

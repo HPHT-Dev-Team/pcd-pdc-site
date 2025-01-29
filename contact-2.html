@@ -328,7 +328,7 @@
 							</div>
 						</div>
 						<div class="col-lg-8 col-md-12 m-b30">
-							<form class="inquiry-form wow fadeInUp" data-wow-delay="0.2s">
+							<form class="inquiry-form wow fadeInUp" data-wow-delay="0.2s" id="submit-to-google-sheet">
 								<h3 class="title-box font-weight-300 m-t0 m-b10">Let's Convert Your Idea into Reality <span class="bg-primary"></span></h3>
 								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the</p>
 								<form action="https://formspree.io/f/xbljvdpg" method="POST">
@@ -337,7 +337,9 @@
 										<div class="form-group">
 										  <div class="input-group">
 											<span class="input-group-addon"><i class="ti-user text-primary"></i></span>
-											<input name="dzName" type="text" required="" class="form-control" placeholder="First Name">
+											<input id="name" name="name"  type="text" required="" class="form-control" placeholder="First Name">
+											<small class="text-danger error" id="nameError" style="display: none;">Please enter your name.</small>
+
 										  </div>
 										</div>
 									  </div>
@@ -345,7 +347,9 @@
 										<div class="form-group">
 										  <div class="input-group">
 											<span class="input-group-addon"><i class="ti-mobile text-primary"></i></span>
-											<input name="dzOther[Phone]" type="text" required="" class="form-control dz-number" placeholder="Phone">
+											<input id="number" name="number" id="subjectError" type="number" required="" class="form-control dz-number" placeholder="Phone">
+											<small class="text-danger error" id="subjectError" style="display: none;">Please enter your number.</small>
+
 										  </div>
 										</div>
 									  </div>
@@ -353,7 +357,9 @@
 										<div class="form-group">
 										  <div class="input-group"> 
 											<span class="input-group-addon"><i class="ti-email text-primary"></i></span>
-											<input name="dzEmail" type="email" class="form-control" required="" placeholder="Your Email Id">
+											<input id="email" name="email" id="emailError" type="email" class="form-control" required="" placeholder="Your Email Id">
+											<small class="text-danger error" id="emailError" style="display: none;">Please enter your email.</small>
+
 										  </div>
 										</div>
 									  </div>
@@ -377,7 +383,9 @@
 										<div class="form-group">
 										  <div class="input-group">
 											<span class="input-group-addon"><i class="ti-agenda text-primary"></i></span>
-											<textarea name="dzMessage" rows="4" class="form-control" required="" placeholder="Tell us about your project or idea"></textarea>
+											<textarea id="message" id="messageError" name="message" rows="4" class="form-control" required="" placeholder="Tell us about your project or idea"></textarea>
+											<small class="text-danger error" id="messageError" style="display: none;">Please enter your message.</small>
+
 										  </div>
 										</div>
 									  </div>
@@ -549,5 +557,91 @@ jQuery(document).ready(function() {
 	$('.lazy').Lazy();
 });	/*ready*/
 </script>
+<script>
+	const scriptURL = "https://script.google.com/macros/s/AKfycbxOFBxM-Dq8OmzulfJiQF1gpi9HIcMGyLUGwWaazXzPfZdVqmzE3Wn9a_o8c7M6rweP/exec";
+	const form = document.forms["submit-to-google-sheet"];
+  
+	form.addEventListener("submit", (e) => {
+	  e.preventDefault(); // Prevent default form behavior
+  
+	  // Collect input values
+	  const name = document.getElementById("name").value.trim();
+	  const email = document.getElementById("email").value.trim();
+	  const subject = document.getElementById("number").value.trim();
+	  const message = document.getElementById("message").value.trim();
+  
+	  // Validation flags
+	  let isValid = true;
+  
+	  // Validate Name
+	  if (!name) {
+		document.getElementById("nameError").style.display = "block";
+		isValid = false;
+	  } else {
+		document.getElementById("nameError").style.display = "none";
+	  }
+  
+	  // Validate Email
+	  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+	  if (!emailRegex.test(email)) {
+		document.getElementById("emailError").style.display = "block";
+		isValid = false;
+	  } else {
+		document.getElementById("emailError").style.display = "none";
+	  }
+  
+	  // Validate Subject
+	  if (!subject) {
+		document.getElementById("subjectError").style.display = "block";
+		isValid = false;
+	  } else {
+		document.getElementById("subjectError").style.display = "none";
+	  }
+  
+	  // Validate Message
+	  if (!message) {
+		document.getElementById("messageError").style.display = "block";
+		isValid = false;
+	  } else {
+		document.getElementById("messageError").style.display = "none";
+	  }
+  
+	  // If validation fails, stop and show errors
+	  if (!isValid) {
+		return;
+	  }
+  
+	  // Trigger button animation after successful validation
+	//   triggerButtonAnimation();
+  
+	  // Form is valid; proceed with submission
+	  const formData = new FormData(form);
+
+		  // Get the current date and time
+  const now = new Date();
+  const date = now.toLocaleDateString(); // e.g., "1/20/2025"
+  const time = now.toLocaleTimeString(); // e.g., "5:30:45 PM"
+
+  // Append the date and time separately to FormData
+  formData.append("date", date);
+  formData.append("time", time);
+
+  
+	  fetch(scriptURL, { method: "POST", body: formData })
+		.then((response) => {
+		  if (response.ok) {
+			swal("Done", "Submitted Successfully.", "success");
+			 // Reset form on success
+		  } else {
+			throw new Error("Submission failed");
+		  }
+		})
+		.catch((error) => {
+		  console.error("Error:", error);
+		  swal("Error", "Something went wrong. Please try again!", "error");
+		});
+		form.reset();
+	});
+  </script>
 </body>
 </html>
