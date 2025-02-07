@@ -7,11 +7,14 @@ export function generateStaticParams() {
   }));
 }
 
-export default function ProductCategoryPage({
-  params,
-}: {
-  params: { category: string };
-}) {
+type Props = {
+  params: {
+    category: string;
+  };
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
+export default function ProductCategoryPage({ params, searchParams }: Props) {
   const category = params.category;
   const categoryData = productCategories[category];
 
