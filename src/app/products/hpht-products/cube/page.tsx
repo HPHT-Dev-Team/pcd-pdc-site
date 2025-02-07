@@ -4,6 +4,15 @@ import { productCategories } from '@/config/products';
 import ProductDetail from '@/components/products/ProductDetail';
 import { motion } from 'framer-motion';
 
+// Add generateStaticParams function for static path generation
+export function generateStaticParams() {
+  return productCategories['hpht-products'].products
+    .filter(p => p.href.startsWith('/products/hpht-products/'))
+    .map(product => ({
+      slug: product.href.split('/').pop(),
+    }));
+}
+
 export default function HPHTCubePage() {
   const product = productCategories['hpht-products'].products.find(p => p.href === '/products/hpht-products/cube');
 

@@ -7,6 +7,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ChevronRightIcon } from '@heroicons/react/20/solid';
 
+// Add generateStaticParams function for static path generation
+export function generateStaticParams() {
+  return Object.keys(productCategories).map((category) => ({
+    category,
+  }));
+}
+
 export default function ProductCategoryPage() {
   const params = useParams();
   const category = params.category as string;

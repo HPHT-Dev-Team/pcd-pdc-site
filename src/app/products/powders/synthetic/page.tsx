@@ -4,6 +4,15 @@ import { productCategories } from '@/config/products';
 import ProductDetail from '@/components/products/ProductDetail';
 import { motion } from 'framer-motion';
 
+// Add generateStaticParams function for static path generation
+export function generateStaticParams() {
+  return productCategories['powders'].products
+    .filter(p => p.href.startsWith('/products/powders/'))
+    .map(product => ({
+      slug: product.href.split('/').pop(),
+    }));
+}
+
 export default function SyntheticDiamondPowderPage() {
   const product = productCategories['powders'].products.find(p => p.href === '/products/powders/synthetic');
 
