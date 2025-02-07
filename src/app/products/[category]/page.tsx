@@ -1,22 +1,21 @@
-'use client';
-
-import { useParams } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { productCategories } from '@/config/products';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ChevronRightIcon } from '@heroicons/react/20/solid';
 
-// Add generateStaticParams function for static path generation
 export function generateStaticParams() {
   return Object.keys(productCategories).map((category) => ({
     category,
   }));
 }
 
-export default function ProductCategoryPage() {
-  const params = useParams();
-  const category = params.category as string;
+export default function ProductCategoryPage({
+  params,
+}: {
+  params: { category: string };
+}) {
+  const category = params.category;
   const categoryData = productCategories[category];
 
   if (!categoryData) {
@@ -34,11 +33,7 @@ export default function ProductCategoryPage() {
   }
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-    >
+    <div>
       {/* Breadcrumb */}
       <nav className="flex mb-8" aria-label="Breadcrumb">
         <ol className="flex items-center space-x-2">
@@ -71,12 +66,8 @@ export default function ProductCategoryPage() {
 
       <div className="grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2">
         {categoryData.products.map((product) => (
-          <motion.div
+          <div
             key={product.href}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
             className="group relative flex flex-col bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow"
           >
             <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-t-2xl bg-gray-200">
@@ -133,9 +124,9 @@ export default function ProductCategoryPage() {
                 </Link>
               </div>
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
-    </motion.div>
+    </div>
   );
 } 

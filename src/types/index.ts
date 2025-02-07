@@ -35,8 +35,19 @@ export interface NavigationItem {
   items?: NavigationItem[];
 }
 
+export interface ProductData {
+  name: string;
+  description: string;
+  href: string;
+  imageSrc: string;
+  category: string;
+  features?: string[];
+  applications?: string[];
+  specifications?: Record<string, string>;
+}
+
 export interface CategoryData {
   title: string;
   description: string;
-  products: Product[];
+  products: ProductData[];
 } 
