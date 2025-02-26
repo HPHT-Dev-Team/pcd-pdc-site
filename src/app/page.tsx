@@ -3,25 +3,28 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import imageLoader from '@/utils/image-loader';
+
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
 const products = [
   {
     name: 'PCD/PDC Tools',
     description: 'High-performance Polycrystalline Diamond tools for precision cutting and drilling.',
     href: '/products/pcd-pdc',
-    imageSrc: '/images/pcd-pdc/domed-pcd.jpg',
+    imageSrc: `${basePath}/images/pcd-pdc/domed-pcd.jpg`,
   },
   {
     name: 'Diamond Products',
     description: 'Premium quality natural and synthetic diamonds for industrial applications.',
     href: '/products/diamonds',
-    imageSrc: '/images/diamonds/natural-diamond.jpg',
+    imageSrc: `${basePath}/images/diamonds/natural-diamond.jpg`,
   },
   {
     name: 'HPHT Products',
     description: 'Specialized products for High Pressure High Temperature applications.',
     href: '/products/hpht-products',
-    imageSrc: '/images/hpht_products/cube.jpg',
+    imageSrc: `${basePath}/images/hpht_products/cube.jpg`,
   },
 ];
 
@@ -65,11 +68,12 @@ export default function Home() {
         <div className="bg-gray-50 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
           <Image
             className="aspect-[3/2] object-cover lg:aspect-auto lg:h-full lg:w-full"
-            src="/images/hpht_products/manufacturing_process.jpg"
+            src={`${basePath}/images/hpht_products/manufacturing_process.jpg`}
             alt="Industrial diamond manufacturing"
             width={1920}
             height={1080}
             priority
+            loader={imageLoader}
           />
         </div>
       </div>
@@ -100,6 +104,7 @@ export default function Home() {
                       className="absolute inset-0 h-full w-full rounded-2xl bg-gray-50 object-cover"
                       width={500}
                       height={500}
+                      loader={imageLoader}
                     />
                     <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
                   </div>

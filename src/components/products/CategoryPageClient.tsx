@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ChevronRightIcon } from '@heroicons/react/20/solid';
 import { CategoryData } from '@/types';
+import imageLoader from '@/utils/image-loader';
 
 export default function CategoryPageClient({
   categoryData,
@@ -65,6 +66,7 @@ export default function CategoryPageClient({
                 className="h-full w-full object-cover object-center group-hover:opacity-90 transition-opacity"
                 width={500}
                 height={500}
+                loader={imageLoader}
               />
             </div>
             <div className="flex flex-col flex-1 p-6">

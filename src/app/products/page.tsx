@@ -4,12 +4,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { productCategories } from '@/config/products';
+import imageLoader from '@/utils/image-loader';
 
 const categories = Object.entries(productCategories).map(([key, category]) => ({
   name: category.title,
   description: category.description,
   href: `/products/${key}`,
-  imageSrc: category.products[0].imageSrc,
+  imageSrc: category.imageSrc,
   category: 'Industrial Products',
   products: category.products,
 }));
@@ -89,6 +90,7 @@ export default function ProductsPage() {
                     className="h-full w-full object-cover object-center group-hover:opacity-75"
                     width={500}
                     height={500}
+                    loader={imageLoader}
                   />
                 </div>
                 <div className="mt-4">

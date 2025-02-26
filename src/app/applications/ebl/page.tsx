@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
+import imageLoader from '@/utils/image-loader';
 
 export default function EBLPage() {
   const applications = [
@@ -58,6 +59,7 @@ export default function EBLPage() {
                     alt={app.title}
                     fill
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    loader={imageLoader}
                   />
                 </div>
                 <div className="mt-4">

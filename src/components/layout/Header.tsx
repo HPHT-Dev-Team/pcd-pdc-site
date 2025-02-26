@@ -8,6 +8,9 @@ import { Bars3Icon, XMarkIcon, ChevronDownIcon } from '@heroicons/react/24/outli
 import { mainNavigation } from '@/config/navigation';
 import type { NavigationItem } from '@/types';
 import { usePathname } from 'next/navigation';
+import imageLoader from '@/utils/image-loader';
+
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
 function hasItems(item: NavigationItem): item is NavigationItem & { items: NavigationItem[] } {
   return Array.isArray(item.items) && item.items.length > 0;
@@ -163,17 +166,17 @@ export default function Header() {
     <header className="bg-white relative z-50">
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
-          <Link href="/" className="-m-1.5 p-1.5">
+          <a href={`${basePath}/`} className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
             <Image
-              className="h-8 w-auto"
-              src="/images/logo.png"
+              src={`${basePath}/images/logo.png`}
               alt="Company Logo"
               width={120}
               height={32}
-              priority
+              className="h-8 w-auto"
+              loader={imageLoader}
             />
-          </Link>
+          </a>
         </div>
         <div className="flex lg:hidden">
           <button
@@ -211,10 +214,11 @@ export default function Header() {
               <span className="sr-only">Your Company</span>
               <Image
                 className="h-8 w-auto"
-                src="/images/logo.png"
+                src={`${basePath}/images/logo.png`}
                 alt="Company Logo"
                 width={120}
                 height={32}
+                loader={imageLoader}
               />
             </Link>
             <button

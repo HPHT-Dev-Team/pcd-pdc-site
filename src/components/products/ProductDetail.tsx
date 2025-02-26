@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import type { Product } from '@/types';
+import imageLoader from '@/utils/image-loader';
 
 interface ProductDetailProps {
   product: Product;
@@ -30,6 +31,7 @@ export default function ProductDetail({ product, showBackLink = true }: ProductD
                 width={800}
                 height={800}
                 priority
+                loader={imageLoader}
               />
             </div>
 

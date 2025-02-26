@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import imageLoader from '@/utils/image-loader';
 
 const navigation = {
   main: [
@@ -50,6 +51,8 @@ const navigation = {
   ],
 };
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
 export default function Footer() {
   return (
     <footer className="bg-gray-900">
@@ -72,15 +75,16 @@ export default function Footer() {
           ))}
         </div>
         <div className="mt-10 flex items-center justify-center">
-          <Link href="/" className="flex items-center">
+          <a href={`${basePath}/`} className="flex items-center">
             <Image
-              className="h-12 w-auto"
-              src="/images/logo-light.png"
+              src={`${basePath}/images/logo-light.png`}
               alt="Company Logo"
               width={180}
               height={48}
+              className="h-12 w-auto"
+              loader={imageLoader}
             />
-          </Link>
+          </a>
         </div>
         <p className="mt-10 text-center text-xs leading-5 text-gray-400">
           &copy; {new Date().getFullYear()} Your Company Name. All rights reserved.

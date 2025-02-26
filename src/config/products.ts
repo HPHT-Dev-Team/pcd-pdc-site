@@ -1,15 +1,18 @@
 import { CategoryData } from '@/types';
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
 export const productCategories: Record<string, CategoryData> = {
   'pcd-pdc': {
     title: 'PCD/PDC Tools',
     description: 'High-performance Polycrystalline Diamond tools for precision cutting and drilling applications.',
+    imageSrc: `${basePath}/images/pcd-pdc/domed-pcd.jpg`,
     products: [
       {
         name: 'Domed PCD',
         description: 'Advanced domed PCD inserts designed for high impact resistant applications in percussive drilling.',
         href: '/products/pcd-pdc/domed',
-        imageSrc: '/images/pcd-pdc/domed-pcd.jpg',
+        imageSrc: `${basePath}/images/pcd-pdc/domed-pcd.jpg`,
         category: 'PCD Tools',
         features: [
           'Two-layered engineered structure',
@@ -35,7 +38,7 @@ export const productCategories: Record<string, CategoryData> = {
         name: 'Flat PCD',
         description: 'Precision flat PCD tools for high-performance cutting applications.',
         href: '/products/pcd-pdc/flat',
-        imageSrc: '/images/pcd-pdc/flat-pcd.jpg',
+        imageSrc: `${basePath}/images/pcd-pdc/flat-pcd.jpg`,
         category: 'PCD Tools',
         features: [
           'Superior wear resistance',
@@ -55,7 +58,7 @@ export const productCategories: Record<string, CategoryData> = {
         name: 'Conical PCD',
         description: 'Advanced conical PCD tools for specialized drilling applications.',
         href: '/products/pcd-pdc/conical',
-        imageSrc: '/images/pcd-pdc/conical-pcd.jpg',
+        imageSrc: `${basePath}/images/pcd-pdc/conical-pcd.jpg`,
         category: 'PCD Tools',
         features: [
           'Optimized geometry',
@@ -74,7 +77,7 @@ export const productCategories: Record<string, CategoryData> = {
         name: 'Road Milling / Mining',
         description: 'Heavy-duty PCD tools specifically designed for road construction and mining applications.',
         href: '/products/pcd-pdc/road-milling',
-        imageSrc: '/images/pcd-pdc/road-milling.jpg',
+        imageSrc: `${basePath}/images/pcd-pdc/road-milling.jpg`,
         category: 'PCD Tools',
         features: [
           'Extreme durability',
@@ -94,12 +97,13 @@ export const productCategories: Record<string, CategoryData> = {
   'powders': {
     title: 'Diamond Powders',
     description: 'High-quality diamond powders and industrial powders for various applications.',
+    imageSrc: `${basePath}/images/powders/diamond-powder.jpg`,
     products: [
       {
         name: 'Synthetic Diamond Powder',
         description: 'Premium synthetic diamond powder for industrial applications.',
         href: '/products/powders/synthetic',
-        imageSrc: '/images/diamonds/synthetic-diamond.jpg',
+        imageSrc: `${basePath}/images/diamonds/synthetic-diamond.jpg`,
         category: 'Powders',
         features: [
           'Consistent particle size',
@@ -118,7 +122,7 @@ export const productCategories: Record<string, CategoryData> = {
         name: 'Natural Diamond Powder',
         description: 'High-quality natural diamond powder for specialized applications.',
         href: '/products/powders/natural',
-        imageSrc: '/images/diamonds/natural-diamond.jpg',
+        imageSrc: `${basePath}/images/diamonds/natural-diamond.jpg`,
         category: 'Powders',
         features: [
           'Exceptional hardness',
@@ -137,7 +141,7 @@ export const productCategories: Record<string, CategoryData> = {
         name: 'Cobalt Powder',
         description: 'High-quality cobalt powder for industrial applications.',
         href: '/products/powders/cobalt',
-        imageSrc: '/images/powders/cobalt-powder.jpg',
+        imageSrc: `${basePath}/images/powders/cobalt-powder.jpg`,
         category: 'Powders',
         features: [
           'High purity',
@@ -161,7 +165,7 @@ export const productCategories: Record<string, CategoryData> = {
         name: 'Tungsten Carbide Powder',
         description: 'High-performance tungsten carbide powder for industrial use.',
         href: '/products/powders/tungsten-carbide',
-        imageSrc: '/images/powders/tungsten-carbide-powder.jpg',
+        imageSrc: `${basePath}/images/powders/tungsten-carbide-powder.jpg`,
         category: 'Powders',
         features: [
           'High hardness',
@@ -181,12 +185,13 @@ export const productCategories: Record<string, CategoryData> = {
   'diamonds': {
     title: 'Diamonds',
     description: 'High-quality natural and synthetic diamonds for industrial and specialized applications.',
+    imageSrc: `${basePath}/images/diamonds/natural-diamond.jpg`,
     products: [
       {
         name: 'Natural Diamond',
         description: 'Premium quality natural diamonds for specialized industrial applications.',
         href: '/products/diamonds/natural',
-        imageSrc: '/images/diamonds/natural-diamond.jpg',
+        imageSrc: `${basePath}/images/diamonds/natural-diamond.jpg`,
         category: 'Diamonds',
         features: [
           'Superior hardness',
@@ -210,7 +215,7 @@ export const productCategories: Record<string, CategoryData> = {
         name: 'Synthetic Diamond',
         description: 'High-quality synthetic diamonds manufactured using advanced technology.',
         href: '/products/diamonds/synthetic',
-        imageSrc: '/images/diamonds/synthetic-diamond.jpg',
+        imageSrc: `${basePath}/images/diamonds/synthetic-diamond.jpg`,
         category: 'Diamonds',
         features: [
           'Controlled properties',
@@ -229,13 +234,14 @@ export const productCategories: Record<string, CategoryData> = {
   },
   'carbide': {
     title: 'Carbide Products',
-    description: 'High-quality carbide materials and tools for industrial applications.',
+    description: 'Premium carbide materials and tools for industrial applications.',
+    imageSrc: `${basePath}/images/carbide/carbide.jpg`,
     products: [
       {
         name: 'Carbide',
         description: 'Premium carbide materials for industrial use.',
         href: '/products/carbide',
-        imageSrc: '/images/carbide/carbide.jpg',
+        imageSrc: `${basePath}/images/carbide/carbide.jpg`,
         category: 'Carbide',
         features: [
           'High hardness',
@@ -255,12 +261,13 @@ export const productCategories: Record<string, CategoryData> = {
   'hpht-products': {
     title: 'HPHT Products',
     description: 'Specialized products for High Pressure High Temperature (HPHT) applications.',
+    imageSrc: `${basePath}/images/hpht_products/cube.jpg`,
     products: [
       {
         name: 'Cube for HPHT',
         description: 'Specialized cubes designed for HPHT applications.',
         href: '/products/hpht-products/cube',
-        imageSrc: '/images/hpht_products/cube.jpg',
+        imageSrc: `${basePath}/images/hpht_products/cube.jpg`,
         category: 'HPHT Products',
         features: [
           'Precision engineered',
@@ -279,7 +286,7 @@ export const productCategories: Record<string, CategoryData> = {
         name: 'Anvil',
         description: 'High-performance anvils for HPHT applications.',
         href: '/products/hpht-products/anvil',
-        imageSrc: '/images/hpht_products/anvil.jpg',
+        imageSrc: `${basePath}/images/hpht_products/anvil.jpg`,
         category: 'HPHT Products',
         features: [
           'Superior strength',
@@ -298,13 +305,14 @@ export const productCategories: Record<string, CategoryData> = {
   },
   'industrial-materials': {
     title: 'Industrial Materials',
-    description: 'Specialized industrial materials for various applications.',
+    description: 'Advanced industrial materials for specialized applications.',
+    imageSrc: `${basePath}/images/industrial-materials/materials.jpg`,
     products: [
       {
         name: 'Niobiomcan',
         description: 'Advanced niobium-based material for specialized applications.',
         href: '/products/industrial-materials/niobiomcan',
-        imageSrc: '/images/hpht_products/process.png',
+        imageSrc: `${basePath}/images/hpht_products/process.png`,
         category: 'Industrial Materials',
         features: [
           'High performance',
@@ -319,6 +327,14 @@ export const productCategories: Record<string, CategoryData> = {
           'Advanced materials',
         ],
       },
+    ],
+  },
+  'equipment': {
+    title: 'Equipment',
+    description: 'High-quality equipment and machinery for industrial applications.',
+    imageSrc: `${basePath}/images/equipment/machinery.jpg`,
+    products: [
+      // ... existing code ...
     ],
   },
   // Add more categories as needed

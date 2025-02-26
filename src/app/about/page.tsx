@@ -2,6 +2,9 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import imageLoader from '@/utils/image-loader';
+
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
 export default function AboutPage() {
   return (
@@ -42,10 +45,11 @@ export default function AboutPage() {
             </div>
             <div className="relative h-[400px]">
               <Image
-                src="/images/hpht_products/manufacturing_process.jpg"
+                src={`${basePath}/images/hpht_products/manufacturing_process.jpg`}
                 alt="Manufacturing facility"
                 fill
                 className="object-cover rounded-lg"
+                loader={imageLoader}
               />
             </div>
           </div>
@@ -62,17 +66,17 @@ export default function AboutPage() {
                   {
                     title: 'Quality Manufacturing',
                     description: 'State-of-the-art facilities and rigorous quality control processes.',
-                    image: '/images/hpht_products/quality_control.jpg',
+                    image: `${basePath}/images/hpht_products/quality_control.jpg`,
                   },
                   {
                     title: 'Research & Development',
                     description: 'Continuous innovation in diamond tool technology and applications.',
-                    image: '/images/hpht_products/RnD.jpg',
+                    image: `${basePath}/images/hpht_products/RnD.jpg`,
                   },
                   {
                     title: 'Technical Support',
                     description: 'Expert technical support and customized solutions for your needs.',
-                    image: '/images/hpht_products/technical_support.jpg',
+                    image: `${basePath}/images/hpht_products/technical_support.jpg`,
                   },
                 ].map((item) => (
                   <div key={item.title} className="relative">
@@ -83,6 +87,7 @@ export default function AboutPage() {
                         width={400}
                         height={300}
                         className="object-cover w-full h-full"
+                        loader={imageLoader}
                       />
                     </div>
                     <h3 className="mt-4 text-xl font-semibold text-gray-900">{item.title}</h3>

@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import imageLoader from '@/utils/image-loader';
 
 export default function ManufacturingProcessPage() {
   const processes = [
@@ -73,6 +74,7 @@ export default function ManufacturingProcessPage() {
                     alt={process.title}
                     fill
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    loader={imageLoader}
                   />
                 </div>
                 <div className="mt-4">

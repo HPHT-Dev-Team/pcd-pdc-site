@@ -49,5 +49,6 @@ export interface ProductData {
 export interface CategoryData {
   title: string;
   description: string;
+  imageSrc: string;
   products: ProductData[];
 } 
