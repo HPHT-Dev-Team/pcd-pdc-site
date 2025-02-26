@@ -32,14 +32,21 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Set production environment
+      - name: Set environment variables
         run: |
-          echo "NEXT_PUBLIC_BASE_PATH=/pcd-pdc-site" > .env.production
+          echo "NEXT_PUBLIC_BASE_PATH=/pcd-pdc-site" >> .env.local
+          echo "NEXT_PUBLIC_BASE_PATH=/pcd-pdc-site" >> .env.production
 
-      - name: Build
+      - name: Build and Export
         run: npm run build
         env:
           NEXT_PUBLIC_BASE_PATH: /pcd-pdc-site
+
+      - name: Fix permissions
+        run: |
+          chmod -c -R +rX "out/" | while read line; do
+            echo "::warning title=Invalid file permissions automatically fixed::$line"
+          done
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
