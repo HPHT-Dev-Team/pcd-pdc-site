@@ -1,5 +1,6 @@
 import { productCategories } from '@/config/products';
 import CategoryPageClient from '@/components/products/CategoryPageClient';
+import { Metadata } from 'next';
 
 export function generateStaticParams() {
   return Object.keys(productCategories).map((category) => ({
@@ -7,15 +8,16 @@ export function generateStaticParams() {
   }));
 }
 
-type Props = {
-  params: {
-    category: string;
-  };
-  searchParams: { [key: string]: string | string[] | undefined };
-};
+interface Props {
+  params: Promise<{ category: string }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}
 
-export default function ProductCategoryPage({ params, searchParams }: Props) {
-  const category = params.category;
+export default async function ProductCategoryPage({
+  params,
+  searchParams,
+}: Props) {
+  const { category } = await params;
   const categoryData = productCategories[category];
 
   if (!categoryData) {
