@@ -1,5 +1,5 @@
 [build]
-  command = "npm run build:static"
+  command = "NEXT_PUBLIC_BASE_PATH='' npx next build"
   publish = "out"
 
 [build.environment]

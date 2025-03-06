@@ -40,10 +40,23 @@ This guide explains how to deploy your Next.js site to Netlify.
 5. Select your repository
 
 6. Configure build settings:
-   - Build command: `npm run build:static`
+   - Build command: `NEXT_PUBLIC_BASE_PATH='' npx next build`
    - Publish directory: `out`
 
 7. Click "Deploy site"
+
+## Testing Locally
+
+To test your Netlify build locally before deploying:
+
+1. Run the test script:
+   ```bash
+   ./test-netlify-build.sh
+   ```
+
+2. Open your browser to http://localhost:8888
+
+3. Verify that all pages and assets load correctly
 
 ## Environment Variables
 

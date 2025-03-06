@@ -15,7 +15,7 @@ npm run clean
 
 # Build the site for Netlify (without base path)
 echo "🏗️ Building static site for Netlify..."
-NEXT_PUBLIC_BASE_PATH="" npm run build:static
+NEXT_PUBLIC_BASE_PATH="" npx next build
 
 # Create .nojekyll file (just in case)
 echo "📄 Creating .nojekyll file..."
