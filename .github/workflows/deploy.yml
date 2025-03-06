@@ -38,3 +38,4 @@ jobs:
           branch: gh-pages
           folder: out
           clean: true
+          token: ${{ github.token }}

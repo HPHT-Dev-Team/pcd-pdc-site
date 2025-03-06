@@ -24,4 +24,12 @@ git push origin main
 
 echo "✅ Changes pushed successfully!"
 echo "🔍 GitHub Actions will now deploy your site to GitHub Pages."
+echo ""
+echo "⚠️ IMPORTANT: If the GitHub Pages deployment fails with a 403 error, you need to:"
+echo "1. Go to your GitHub repository settings"
+echo "2. Navigate to Settings > Actions > General"
+echo "3. Scroll down to 'Workflow permissions'"
+echo "4. Select 'Read and write permissions'"
+echo "5. Save the changes"
+echo ""
 echo "📱 Your site will be available at: https://yourusername.github.io/pcd-pdc-site/" 
