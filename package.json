@@ -7,7 +7,12 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "preview": "npx serve out"
+    "preview": "npx serve out",
+    "analyze": "ANALYZE=true next build",
+    "export": "next build && next export",
+    "deploy": "bash deploy.sh",
+    "clean": "rm -rf .next out",
+    "build:static": "npm run clean && NEXT_PUBLIC_BASE_PATH=/pcd-pdc-site next build"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.18",
@@ -19,6 +24,7 @@
     "react-intersection-observer": "^9.5.3"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^14.2.24",
     "@types/node": "^20.11.16",
     "@types/react": "^18.2.52",
     "@types/react-dom": "^18.2.18",

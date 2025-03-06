@@ -1,27 +1,29 @@
+import { getBasePath } from '@/config/site';
 import type { ImageLoaderProps } from 'next/image';
 
-export default function imageLoader({ src, width, quality }: ImageLoaderProps): string {
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+const imageLoader = ({ src, width, quality = 75 }: ImageLoaderProps) => {
+  const basePath = getBasePath();
   
-  // If the src is an external URL, return it as is
-  if (src.startsWith('http')) {
-    return src;
+  // If src already includes the base path, don't add it again
+  const url = src.startsWith(basePath) ? src : `${basePath}${src}`;
+  
+  // For static export, we don't need to add query parameters
+  if (process.env.NODE_ENV === 'production' && process.env.NEXT_PUBLIC_BASE_PATH) {
+    return url;
+  }
+  
+  // For development, add width and quality parameters
+  const params = new URLSearchParams();
+  
+  if (width) {
+    params.append('w', width.toString());
+  }
+  if (quality) {
+    params.append('q', quality.toString());
   }
 
-  // Remove any leading slashes from src and basePath
-  const cleanSrc = src.replace(/^\/+/, '');
-  const cleanBasePath = basePath.replace(/^\/+/, '').replace(/\/+$/, '');
+  const queryString = params.toString();
+  return queryString ? `${url}?${queryString}` : url;
+};
 
-  // If the src already includes the base path, return it as is
-  if (src.startsWith(cleanBasePath)) {
-    return src;
-  }
-
-  // If the src starts with "images/", ensure it's prefixed with the base path
-  if (cleanSrc.startsWith('images/')) {
-    return cleanBasePath ? `/${cleanBasePath}/${cleanSrc}` : `/${cleanSrc}`;
-  }
-
-  // For other paths, just combine them with a single slash
-  return cleanBasePath ? `/${cleanBasePath}/${cleanSrc}` : `/${cleanSrc}`;
-}
+export default imageLoader;

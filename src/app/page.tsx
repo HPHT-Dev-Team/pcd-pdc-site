@@ -4,8 +4,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import imageLoader from '@/utils/image-loader';
+import { getBasePath } from '@/config/site';
 
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+const basePath = getBasePath();
 
 const products = [
   {
@@ -74,6 +75,8 @@ export default function Home() {
             height={1080}
             priority
             loader={imageLoader}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 1920px"
+            quality={90}
           />
         </div>
       </div>

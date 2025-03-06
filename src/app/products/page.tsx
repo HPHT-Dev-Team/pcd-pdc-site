@@ -1,10 +1,15 @@
 'use client';
 
+import React, { Suspense } from 'react';
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { productCategories } from '@/config/products';
 import imageLoader from '@/utils/image-loader';
+import { getBasePath } from '@/config/site';
+
+const basePath = getBasePath();
 
 const categories = Object.entries(productCategories).map(([key, category]) => ({
   name: category.title,
@@ -14,6 +19,23 @@ const categories = Object.entries(productCategories).map(([key, category]) => ({
   category: 'Industrial Products',
   products: category.products,
 }));
+
+const LoadingGrid = () => (
+  <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+    {[1, 2, 3].map((i) => (
+      <div key={i} className="animate-pulse">
+        <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200" />
+        <div className="mt-4 h-4 bg-gray-200 rounded w-3/4" />
+        <div className="mt-2 h-4 bg-gray-200 rounded w-1/2" />
+      </div>
+    ))}
+  </div>
+);
+
+// Lazy load the category grid
+const ProductCategoryGrid = dynamic(() => import('@/components/products/ProductCategoryGrid'), {
+  loading: LoadingGrid,
+});
 
 export default function ProductsPage() {
   return (
@@ -37,94 +59,18 @@ export default function ProductsPage() {
             </ol>
           </nav>
 
-          <div className="mb-12">
-            <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Our Products</h1>
-            <p className="mt-4 text-lg text-gray-500">
-              Discover our comprehensive range of industrial diamond tools and equipment.
+          <div className="text-center mb-12">
+            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+              Our Products
+            </h1>
+            <p className="mt-6 text-lg leading-8 text-gray-600">
+              Explore our comprehensive range of diamond products and tools
             </p>
           </div>
 
-          {/* Quick Links */}
-          <div className="mb-12 bg-gray-50 rounded-2xl p-8">
-            <h2 className="text-xl font-semibold text-gray-900 mb-6">Quick Navigation</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {categories.map((category) => (
-                <div key={category.name} className="space-y-4">
-                  <h3 className="font-medium text-gray-900">
-                    <Link href={category.href} className="hover:text-blue-600">
-                      {category.name}
-                    </Link>
-                  </h3>
-                  <ul className="space-y-2 text-sm">
-                    {category.products.map((product) => (
-                      <li key={product.href}>
-                        <Link 
-                          href={product.href}
-                          className="text-gray-600 hover:text-blue-600"
-                        >
-                          {product.name}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Main Categories Grid */}
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {categories.map((category) => (
-              <motion.div
-                key={category.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                className="group relative"
-              >
-                <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200">
-                  <Image
-                    src={category.imageSrc}
-                    alt={category.name}
-                    className="h-full w-full object-cover object-center group-hover:opacity-75"
-                    width={500}
-                    height={500}
-                    loader={imageLoader}
-                  />
-                </div>
-                <div className="mt-4">
-                  <span className="text-sm text-gray-500">{category.category}</span>
-                  <h3 className="text-lg font-medium text-gray-900">
-                    <Link href={category.href} className="hover:text-blue-600">
-                      <span aria-hidden="true" className="absolute inset-0" />
-                      {category.name}
-                    </Link>
-                  </h3>
-                  <p className="mt-1 text-sm text-gray-500">{category.description}</p>
-                  <div className="mt-4 space-y-1">
-                    {category.products.slice(0, 3).map((product) => (
-                      <Link
-                        key={product.href}
-                        href={product.href}
-                        className="block text-sm text-gray-600 hover:text-blue-600"
-                      >
-                        • {product.name}
-                      </Link>
-                    ))}
-                    {category.products.length > 3 && (
-                      <Link
-                        href={category.href}
-                        className="block text-sm text-blue-600 hover:text-blue-500"
-                      >
-                        View all {category.products.length} products →
-                      </Link>
-                    )}
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          <Suspense fallback={<LoadingGrid />}>
+            <ProductCategoryGrid categories={categories} />
+          </Suspense>
         </motion.div>
       </div>
     </div>

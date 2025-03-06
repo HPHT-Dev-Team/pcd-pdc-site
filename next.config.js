@@ -1,3 +1,7 @@
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+});
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -10,8 +14,15 @@ const nextConfig = {
     loader: 'custom',
     loaderFile: './src/utils/image-loader.ts',
     path: process.env.NEXT_PUBLIC_BASE_PATH || '',
-    domains: ['localhost'],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+  },
+  experimental: {
+    missingSuspenseWithCSRBailout: false,
+  },
+  webpack: (config) => {
+    return config;
   },
 };
 
-module.exports = nextConfig;
+module.exports = withBundleAnalyzer(nextConfig);

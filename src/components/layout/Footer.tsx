@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import imageLoader from '@/utils/image-loader';
+import { getBasePath } from '@/config/site';
 
 const navigation = {
   main: [
@@ -51,7 +52,7 @@ const navigation = {
   ],
 };
 
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+const basePath = getBasePath();
 
 export default function Footer() {
   return (

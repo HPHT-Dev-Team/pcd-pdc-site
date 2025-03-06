@@ -1,0 +1,7 @@
+{
+  "public": "out",
+  "rewrites": [
+    { "source": "/pcd-pdc-site/**", "destination": "/out/:splat" }
+  ],
+  "trailingSlash": true
+}

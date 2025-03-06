@@ -9,8 +9,9 @@ import { mainNavigation } from '@/config/navigation';
 import type { NavigationItem } from '@/types';
 import { usePathname } from 'next/navigation';
 import imageLoader from '@/utils/image-loader';
+import { getBasePath } from '@/config/site';
 
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+const basePath = getBasePath();
 
 function hasItems(item: NavigationItem): item is NavigationItem & { items: NavigationItem[] } {
   return Array.isArray(item.items) && item.items.length > 0;
@@ -18,7 +19,7 @@ function hasItems(item: NavigationItem): item is NavigationItem & { items: Navig
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const pathname = usePathname();
+  const pathname = usePathname() || '';
 
   // Close mobile menu when route changes
   useEffect(() => {
