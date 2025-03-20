@@ -47,7 +47,7 @@ export default function ContactPage() {
                   </svg>
                 </div>
                 <div className="ml-3 text-base text-gray-500">
-                  <p>+1 (555) 123-4567</p>
+                  <p>+91 8850 490452</p>
                   <p className="mt-1">Mon-Fri 9am to 6pm PST</p>
                 </div>
               </div>
@@ -58,7 +58,7 @@ export default function ContactPage() {
                   </svg>
                 </div>
                 <div className="ml-3 text-base text-gray-500">
-                  <p>info@example.com</p>
+                  <p>navinparsana@gmail.com</p>
                 </div>
               </div>
             </div>
@@ -83,7 +83,8 @@ export default function ContactPage() {
                     required
                     value={formData.name}
                     onChange={handleChange}
-                    className="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                    className="block w-full h-[32px] rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+
                   />
                 </div>
               </div>
@@ -99,7 +100,8 @@ export default function ContactPage() {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                    className="block w-full h-[32px] rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+
                   />
                 </div>
               </div>
@@ -114,7 +116,8 @@ export default function ContactPage() {
                     id="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                    className="block w-full h-[32px] rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+
                   />
                 </div>
               </div>
@@ -129,7 +132,8 @@ export default function ContactPage() {
                     id="company"
                     value={formData.company}
                     onChange={handleChange}
-                    className="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                    className="block w-full h-[32px] rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+
                   />
                 </div>
               </div>
@@ -145,7 +149,8 @@ export default function ContactPage() {
                     required
                     value={formData.message}
                     onChange={handleChange}
-                    className="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                    className="block w-full h-[32px] rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+
                   />
                 </div>
               </div>
