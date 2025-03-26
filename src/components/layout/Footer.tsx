@@ -10,7 +10,7 @@ const navigation = {
     { name: 'Products', href: '/products' },
     { name: 'About', href: '/about' },
     { name: 'Contact', href: '/contact' },
-    { name: 'Privacy Policy', href: '/privacy-policy' },
+    { name: 'Privacy Policy', href: '/privacy' },
   ],
   social: [
     {

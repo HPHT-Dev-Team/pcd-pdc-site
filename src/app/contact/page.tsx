@@ -48,7 +48,7 @@ export default function ContactPage() {
                 </div>
                 <div className="ml-3 text-base text-gray-500">
                   <p>+91 8850 490452</p>
-                  <p className="mt-1">Mon-Fri 9am to 6pm PST</p>
+                  <p className="mt-1">Mon-Fri 9am to 6pm IST</p>
                 </div>
               </div>
               <div className="mt-6 flex">
@@ -58,7 +58,7 @@ export default function ContactPage() {
                   </svg>
                 </div>
                 <div className="ml-3 text-base text-gray-500">
-                  <p>navinparsana@gmail.com</p>
+                  <p>navinparsana@hotmail.com</p>
                 </div>
               </div>
             </div>
