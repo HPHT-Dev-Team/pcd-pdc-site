@@ -7,8 +7,8 @@ import Footer from '@/components/layout/Footer';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Industrial Diamond Tools & Equipment',
-  description: 'High-quality industrial diamond tools, PCD, PDC, and carbide products for various applications.',
+  title: 'Polycrystalline Diamond Tools & Equipment',
+  description: 'High-quality Polycrystalline Diamond tools, PCD, PDC, and carbide products for various applications.',
 };
 
 export default function RootLayout({

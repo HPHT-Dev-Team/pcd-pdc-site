@@ -106,25 +106,20 @@ export default function QualityControlPage() {
           </div>
 
           <div className="prose prose-lg max-w-none">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">
-              Our Quality Commitment
+            <h2 className="text-3xl  text-gray-900 mb-6">
+              Insert are manufactured under strict guideline where all high pressure and high temperature componets , raw materials for insert are regulated. All batches of inserts are checked for the following.
             </h2>
             <p className="text-gray-600 mb-4">
-              Quality is at the core of everything we do. Our comprehensive quality control system
-              ensures that every product meets our rigorous standards before reaching our customers.
-              From raw material inspection to final product testing, we maintain strict quality
-              control at every step.
+              Dye penetration to check presence of cracks.
             </p>
             <p className="text-gray-600 mb-4">
-              Our quality control team uses advanced testing equipment and follows standardized
-              procedures to verify product specifications, performance, and reliability. We maintain
-              detailed documentation of all quality control processes and regularly review and
-              update our procedures to ensure continuous improvement.
+              Thermal stability test.
             </p>
             <p className="text-gray-600">
-              We are committed to maintaining international quality standards and continuously
-              invest in training our quality control personnel to stay current with the latest
-              quality assurance techniques and technologies.
+              Drop weight test
+            </p>
+            <p className="text-gray-600">
+              Impact fatigue where inserts are subjected to impact at a rate of 20 hits per minute using a 5 ton machine
             </p>
           </div>
         </motion.div>

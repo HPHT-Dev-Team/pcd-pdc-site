@@ -40,7 +40,7 @@ export default function ProductsPage() {
           <div className="mb-12">
             <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Our Products</h1>
             <p className="mt-4 text-lg text-gray-500">
-              Discover our comprehensive range of industrial diamond tools and equipment.
+              Discover our comprehensive range of Polycrystalline Diamond tools and equipment.
             </p>
           </div>
 

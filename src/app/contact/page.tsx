@@ -83,7 +83,7 @@ export default function ContactPage() {
                     required
                     value={formData.name}
                     onChange={handleChange}
-                    className="block w-full h-[32px] rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                    className="block w-full h-[42px] rounded-md border border-black shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
 
                   />
                 </div>
@@ -100,7 +100,7 @@ export default function ContactPage() {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className="block w-full h-[32px] rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                    className="block w-full h-[42px] rounded-md border border-black shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
 
                   />
                 </div>
@@ -116,7 +116,7 @@ export default function ContactPage() {
                     id="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="block w-full h-[32px] rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                    className="block w-full h-[42px] rounded-md border border-black shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
 
                   />
                 </div>
@@ -132,7 +132,7 @@ export default function ContactPage() {
                     id="company"
                     value={formData.company}
                     onChange={handleChange}
-                    className="block w-full h-[32px] rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                    className="block w-full h-[42px] rounded-md border border-black shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
 
                   />
                 </div>
@@ -149,7 +149,7 @@ export default function ContactPage() {
                     required
                     value={formData.message}
                     onChange={handleChange}
-                    className="block w-full h-[32px] rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                    className="block w-full h-[42px] rounded-md border border-black shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
 
                   />
                 </div>

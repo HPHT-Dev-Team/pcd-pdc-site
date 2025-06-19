@@ -43,10 +43,10 @@ export default function Home() {
                   transition={{ duration: 0.8 }}
                 >
                   <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-                    Industrial Diamond Solutions
+                    Polycrystalline Diamond Solutions
                   </h1>
                   <p className="mt-6 text-lg leading-8 text-gray-600">
-                    Leading manufacturer of high-quality industrial diamond tools, PCD, PDC, and carbide products.
+                    Leading manufacturer of high-quality Polycrystalline Diamond tools, PCD, PDC, and carbide products.
                     Delivering precision and performance for your cutting-edge applications.
                   </p>
                   <div className="mt-10 flex items-center gap-x-6">
@@ -69,7 +69,7 @@ export default function Home() {
           <Image
             className="aspect-[3/2] object-cover lg:aspect-auto lg:h-full lg:w-full"
             src={`${basePath}/images/hpht_products/manufacturing_process.jpg`}
-            alt="Industrial diamond manufacturing"
+            alt="Polycrystalline Diamond manufacturing"
             width={1920}
             height={1080}
             priority
@@ -84,7 +84,7 @@ export default function Home() {
           <div className="mx-auto max-w-2xl lg:max-w-none">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Featured Products</h2>
             <p className="mt-4 text-lg text-gray-500">
-              Discover our range of high-quality industrial diamond tools and equipment.
+              Discover our range of high-quality Polycrystalline Diamond tools and equipment.
             </p>
 
             <div className="mt-16 space-y-20 lg:mt-20 lg:space-y-20">
